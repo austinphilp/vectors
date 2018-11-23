@@ -139,8 +139,10 @@ class Vector(Point):
         if theta is not None:
             return (self.magnitude() * vector.magnitude() *
                     math.degrees(math.cos(theta)))
-        return (reduce(lambda x, y: x + y,
-                [x * vector.vector[i] for i, x in self.to_list()]))
+        return reduce(
+            lambda x, y: x + y,
+            [x * vector.vector[i] for i, x in enumerate(self.to_list())]
+        )
 
     def cross(self, vector):
         """Return a Vector instance as the cross product of two vectors"""

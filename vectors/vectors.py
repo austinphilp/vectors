@@ -22,10 +22,7 @@ class Point(object):
 
     def __sub__(self, point):
         """Return a Point instance as the displacement of two points."""
-        if type(point) is Point:
-            return self.substract(point)
-        else:
-            raise TypeError
+        return self.substract(point)
 
     def __add__(self, pt):
         if isinstance(pt, Point):
@@ -53,10 +50,7 @@ class Point(object):
 
     def substract(self, pt):
         """Return a Point instance as the displacement of two points."""
-        if isinstance(pt, Point):
-                return Point(pt.x - self.x, pt.y - self.y, pt.z - self.z)
-        else:
-            raise TypeError
+        return Point(pt.x - self.x, pt.y - self.y, pt.z - self.z)
 
     @classmethod
     def from_list(cls, l):
@@ -99,12 +93,10 @@ class Vector(Point):
 
     def __sub__(self, vec):
         """Subtract two vectors"""
-        if(type(vec) == type(self)):
-            return Vector(self.x - vec.x, self.y - vec.y, self.z - vec.z)
-        elif isinstance(vec, Real):
+        if isinstance(vec, Real):
             return Vector(self.x - vec, self.y - vec, self.z - vec)
         else:
-            raise TypeError
+            return Vector(self.x - vec.x, self.y - vec.y, self.z - vec.z)
 
     def __mul__(self, anotherVector):
         """Return a Vector instance as the cross product of two vectors"""

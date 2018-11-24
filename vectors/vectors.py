@@ -20,6 +20,9 @@ class Point(object):
             self.z
         )
 
+    def __mul__(self, point):
+        return self.multiply(point)
+
     def __sub__(self, point):
         """Return a Point instance as the displacement of two points."""
         return self.substract(point)

@@ -141,7 +141,7 @@ class Vector(Point):
                     math.degrees(math.cos(theta)))
         return reduce(
             lambda x, y: x + y,
-            [x * vector.vector[i] for i, x in enumerate(self.to_list())]
+            [x * vector.to_list()[i] for i, x in enumerate(self.to_list())]
         )
 
     def cross(self, vector):
